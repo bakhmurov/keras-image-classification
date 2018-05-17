@@ -103,7 +103,7 @@ venv.bak/
 # mypy
 .mypy_cache/
 
-.h5
+*.h5
 .DS_Store
 uploads/*
 dataset/train/*
