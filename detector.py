@@ -22,6 +22,11 @@ class Detector:
         test_image = image.img_to_array(test_image)
         test_image = np.expand_dims(test_image, axis = 0)
         result = self.model.predict(test_image)
+        found = ""
+        for i, res in enumerate(result[0]):
+            if res == 1:
+                if found != "":
+                    found += ","
+                found += list(self.labels.keys())[i]
         print(result[0])
-        mostLikely = result[0].argmax(axis=0)
-        return list(self.labels.keys())[mostLikely]
+        return None if found == "" else found
