@@ -1,14 +1,14 @@
 import os
 import time
 from flask import Flask, request, redirect, url_for
-from detector import Detector
+from classifier import Classifier
 
 UPLOAD_FOLDER = 'uploads/'
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
-det = Detector()
+cf = Classifier()
 
 @app.route('/', methods=['GET', 'POST'])
 def upload_file():
@@ -17,7 +17,7 @@ def upload_file():
         filepath = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
         file.save(filepath)
         print(filepath)
-        res = det.detect(filepath)
+        res = cf.classify(filepath)
         print(res)
         if res is not None:
             return res

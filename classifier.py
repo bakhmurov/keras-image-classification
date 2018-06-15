@@ -5,7 +5,7 @@ from sys import argv
 from keras.preprocessing import image
 from keras.preprocessing.image import ImageDataGenerator
  
-class Detector:
+class Classifier:
     def __init__(self):
         self.model = load_model('model.h5')
         self.image_size = self.model.input_shape[1]
@@ -17,7 +17,7 @@ class Detector:
         self.labels = training_set.class_indices
         print(self.labels)
 
-    def detect(self, imagePath): 
+    def classify(self, imagePath): 
         test_image = image.load_img(imagePath, target_size = (self.image_size, self.image_size))
         test_image = image.img_to_array(test_image)
         test_image = test_image/255.

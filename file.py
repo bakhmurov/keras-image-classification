@@ -1,10 +1,10 @@
 from keras.models import load_model
 import numpy as np
 from sys import argv
-from detector import Detector
+from classifier import Classifier
 
 script, path = argv
 
-det = Detector()
-result = det.detect(path)
+cf = Classifier()
+result = cf.classify(path)
 print(result)
