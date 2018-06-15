@@ -1,4 +1,4 @@
-# Simple object recognition using keras
+# Simple image classification using keras
 
 ## How to
 
